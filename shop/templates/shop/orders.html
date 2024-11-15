@@ -1,0 +1,18 @@
+{%extends "core/base.html"%}
+{%block title%}Заказы{%endblock%}
+{%block content%}
+    <h1 class="title text-white pb-5 py-5 text-center">Заказы</h1>
+    <div class="container">
+        {%for order in orders%}
+        <div class="">
+            <div class="order text-white">
+                <p class="order_product">Продукт: {{order.product.title}}</p>
+                <p class="order_address">Адрес доставки: {{order.address}}</p>
+                <p class="order_phone">Номер: {{order.phone}}</p>
+                <p class="order_coment">Коментарий к заказу: {{order.comment}}</p>
+                <p class="order_count">Количество в заказе: {{order.count}}</p>
+            </div>
+        </div>
+        {%endfor%}
+    </div>
+{%endblock%}

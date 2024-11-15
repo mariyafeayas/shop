@@ -1,0 +1,29 @@
+{%extends "core/base.html"%}
+{%block title%}Детали продукта{%endblock%}
+{%block content%}
+
+    <h1 class="product_title  pb-5 text-white m-5">{{product.title}}</h1>
+    <img class="product_img w-25" src="{{product.image.url}}" alt="...">
+
+    <div class="product_price_and_discount d-flex justify-content-center m-5">
+        <h2 class="product_price fs-10 text-center text-white ">{{product.price}}&#8381</h2>
+        <span class="product_discount text-danger fs=3 ">{{product.discount}}%</span>
+    </div>
+
+    {%for star in "*****"%}
+    {%if product.rating >= forloop.counter%}
+        <img  width="30" height="30" src="https://img.icons8.com/fluency/48/star--v1.png" alt="star--v1"/>
+    {%else%}
+         <img style="filter: grayscale(1);"  width="48" height="48" src="https://img.icons8.com/fluency/48/star--v1.png" alt="star--v1"/>
+    {%endif%}
+    {%endfor%}
+
+   
+    <p class="product_description text-secondary m-5">{{product.description}}</p>
+
+
+
+    <button>
+        <a href="{%url 'order_create' product_id=product.id %}">купить</a>
+    </button>
+{%endblock%}

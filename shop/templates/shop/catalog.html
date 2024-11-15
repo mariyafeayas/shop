@@ -1,0 +1,30 @@
+{%extends "core/base.html"%}
+{%block title%}Каталог{%endblock%}
+{%block content%}
+    <div class="container">
+        <h1 class="text-center pb-5 text-white m-5">Каталог</h1>
+        {%for product in products%}
+        <div class="card m-5 " style="width: 25rem;">
+            <img src="{{product.image.url}}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <div class="card-price-disc d-flex">
+                    <h2 class="card-price">{{product.price}}&#8381</h2>
+                    <span class="card-discount text-danger fs=3">{{product.discount}}%</span>
+                </div>
+            <h5 class="card-title">{{product.title}}</h5>
+            {%for star in "*****"%}
+            {%if product.rating >= forloop.counter%}
+            <img width="30" height="30" src="https://img.icons8.com/fluency/48/star--v1.png" alt="star--v1"/>
+                {%else%}
+                <img style="filter: grayscale(1);"  width="48" height="48" src="https://img.icons8.com/fluency/48/star--v1.png" alt="star--v1"/>
+            {%endif%}
+                {%endfor%}
+            <p class="card-text">{{product.description}}</p>
+            <a href="{%url 'product_detail' product_id=product.id%}" class="btn btn-outline-dark w-100">Перейти</a>
+            <span class="card-count text-secondary">В наличии осталось {{product.count}} шт</span>
+            </div>
+        </div>
+        {%endfor%}
+    </div>
+{%endblock%}
+    

@@ -1,0 +1,15 @@
+{%extends "core/base.html"%}
+{%block title%}Сделать заказ{%endblock%}
+{%block content%}
+    <main>
+        <h1 class="text-white text-center">ваш заказ</h1>
+        <form method="post" action="">
+            {% csrf_token %}
+            <input type="text" class="form-control  " plaseholder="введите адрес" name="address">
+            <input type="tel" class="form-control  " plaseholder="введите номер" name="phone">
+            <input type="text" class="form-control  " plaseholder="коментарий" name="comment">
+            <input type="number" class="form-control  " plaseholder="количество" name="count">
+            <button type="submit" class="form_control  " name="button">заказать</button>
+        </form>
+    </main>
+    {%endblock%}
